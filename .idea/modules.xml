@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Spring-Demo.iml" filepath="$PROJECT_DIR$/.idea/Spring-Demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bn-springboot/bn-springboot.iml" filepath="$PROJECT_DIR$/bn-springboot/bn-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-springboot/eureka-springboot.iml" filepath="$PROJECT_DIR$/eureka-springboot/eureka-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image-demo/image-demo.iml" filepath="$PROJECT_DIR$/image-demo/image-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netty-springboot/netty-springboot.iml" filepath="$PROJECT_DIR$/netty-springboot/netty-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pdfjs-springboot/pdfjs-springboot.iml" filepath="$PROJECT_DIR$/pdfjs-springboot/pdfjs-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/websocket-springboot/websocket-springboot.iml" filepath="$PROJECT_DIR$/websocket-springboot/websocket-springboot.iml" />
+    </modules>
+  </component>
+</project>
