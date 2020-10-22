@@ -1,0 +1,34 @@
+# 邮件配置
+spring:
+  mail:
+    host: smtp.qq.com #用什么邮箱发送就用对应的host
+    username: 57251180@qq.com #你要发送邮件的邮箱
+    password: chawcekasnadbijg #此处填写你邮箱的授权码,注意：不是密码哦
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  #    static-path-pattern: /static/**
+  # freemarker
+  freemarker:
+    template-loader-path:
+      - classpath:/templates
+    suffix: .ftl
+    enabled: true
+    cache: false
+    charset: UTF-8
+    content-type: text/html
+    allow-request-override: false
+    check-template-location: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+
+# 异常通知地址 多个邮箱以逗号分隔
+alarm:
+  email: ponylau@163.com,951001217@qq.com
