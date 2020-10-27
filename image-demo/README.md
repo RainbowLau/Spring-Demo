@@ -23,3 +23,6 @@ https://www.jianshu.com/p/47aeeba6414c
 https://www.cnblogs.com/dolphin0520/p/3932921.html
 
 https://www.jianshu.com/p/7726c70cdc40
+
+// 启动顺序
+https://www.jianshu.com/p/2f852e4b120d
