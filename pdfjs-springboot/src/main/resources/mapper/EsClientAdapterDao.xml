@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.EsClientAdapterDao">
+
+    <resultMap type=".entity.EsClientAdapter" id="EsClientAdapterMap">
+        <result property="reqId" column="req_id" jdbcType="VARCHAR"/>
+        <result property="reqCode" column="req_code" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="version" column="version" jdbcType="VARCHAR"/>
+        <result property="reqPath" column="req_path" jdbcType="VARCHAR"/>
+        <result property="reqFun" column="req_fun" jdbcType="VARCHAR"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="EsClientAdapterMap">
+        select
+          req_id, req_code, name, version, req_path, req_fun, remark
+        from easyscan_tk.es_client_adapter
+        where req_id = #{reqId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="EsClientAdapterMap">
+        select
+          req_id, req_code, name, version, req_path, req_fun, remark
+        from easyscan_tk.es_client_adapter
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="EsClientAdapterMap">
+        select
+        req_id, req_code, name, version, req_path, req_fun, remark
+        from easyscan_tk.es_client_adapter
+        <where>
+            <if test="reqId != null and reqId != ''">
+                and req_id = #{reqId}
+            </if>
+            <if test="reqCode != null and reqCode != ''">
+                and req_code = #{reqCode}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="version != null and version != ''">
+                and version = #{version}
+            </if>
+            <if test="reqPath != null and reqPath != ''">
+                and req_path = #{reqPath}
+            </if>
+            <if test="reqFun != null and reqFun != ''">
+                and req_fun = #{reqFun}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="reqId" useGeneratedKeys="true">
+        insert into easyscan_tk.es_client_adapter(req_code, name, version, req_path, req_fun, remark)
+        values (#{reqCode}, #{name}, #{version}, #{reqPath}, #{reqFun}, #{remark})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="reqId" useGeneratedKeys="true">
+        insert into easyscan_tk.es_client_adapter(req_code, name, version, req_path, req_fun, remark)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.reqCode}, #{entity.name}, #{entity.version}, #{entity.reqPath}, #{entity.reqFun},
+            #{entity.remark})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="reqId" useGeneratedKeys="true">
+        insert into easyscan_tk.es_client_adapter(req_code, name, version, req_path, req_fun, remark)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.reqCode}, #{entity.name}, #{entity.version}, #{entity.reqPath}, #{entity.reqFun},
+            #{entity.remark})
+        </foreach>
+        on duplicate key update
+        req_code = values(req_code) , name = values(name) , version = values(version) , req_path = values(req_path) ,
+        req_fun = values(req_fun) , remark = values(remark)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update easyscan_tk.es_client_adapter
+        <set>
+            <if test="reqCode != null and reqCode != ''">
+                req_code = #{reqCode},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="version != null and version != ''">
+                version = #{version},
+            </if>
+            <if test="reqPath != null and reqPath != ''">
+                req_path = #{reqPath},
+            </if>
+            <if test="reqFun != null and reqFun != ''">
+                req_fun = #{reqFun},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+        </set>
+        where req_id = #{reqId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from easyscan_tk.es_client_adapter where req_id = #{reqId}
+    </delete>
+
+</mapper>

@@ -70,4 +70,8 @@ public class EmailService {
             e.printStackTrace();
         }
     }
+
+    public void test(){
+        System.out.println("注入bean");
+    }
 }

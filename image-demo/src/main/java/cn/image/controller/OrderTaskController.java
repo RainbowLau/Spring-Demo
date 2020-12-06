@@ -22,4 +22,9 @@ public class OrderTaskController {
         return "success";
     }
 
+    @GetMapping("/1t")
+    public String generateImage() throws InterruptedException {
+        orderTaskServic.generateImage();
+        return "success";
+    }
 }

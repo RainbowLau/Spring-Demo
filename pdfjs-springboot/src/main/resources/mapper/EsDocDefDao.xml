@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace=".dao.EsDocDefDao">
+
+    <resultMap type=".entity.EsDocDef" id="EsDocDefMap">
+        <result property="bussType" column="BUSS_TYPE" jdbcType="VARCHAR"/>
+        <result property="bussTypeName" column="BUSS_TYPE_NAME" jdbcType="VARCHAR"/>
+        <result property="subType" column="SUB_TYPE" jdbcType="VARCHAR"/>
+        <result property="subTypeName" column="SUB_TYPE_NAME" jdbcType="VARCHAR"/>
+        <result property="validFlag" column="VALID_FLAG" jdbcType="VARCHAR"/>
+        <result property="codeFlag" column="CODE_FLAG" jdbcType="VARCHAR"/>
+        <result property="passFlag" column="PASS_FLAG" jdbcType="VARCHAR"/>
+        <result property="docType" column="DOC_TYPE" jdbcType="VARCHAR"/>
+        <result property="codeLen" column="CODE_LEN" jdbcType="VARCHAR"/>
+        <result property="upFileType" column="UP_FILE_TYPE" jdbcType="VARCHAR"/>
+        <result property="saveColorMode" column="SAVE_COLOR_MODE" jdbcType="VARCHAR"/>
+        <result property="scanSettingCode" column="SCAN_SETTING_CODE" jdbcType="VARCHAR"/>
+        <result property="jpgQuality" column="JPG_QUALITY" jdbcType="VARCHAR"/>
+        <result property="fileSaveType" column="FILE_SAVE_TYPE" jdbcType="VARCHAR"/>
+        <result property="docPriority" column="DOC_PRIORITY" jdbcType="VARCHAR"/>
+        <result property="numPages" column="NUM_PAGES" jdbcType="VARCHAR"/>
+        <result property="docVersion" column="DOC_VERSION" jdbcType="VARCHAR"/>
+        <result property="createUser" column="CREATE_USER" jdbcType="VARCHAR"/>
+        <result property="createDate" column="CREATE_DATE" jdbcType="TIMESTAMP"/>
+        <result property="updateUser" column="UPDATE_USER" jdbcType="VARCHAR"/>
+        <result property="updateDate" column="UPDATE_DATE" jdbcType="TIMESTAMP"/>
+        <result property="p1" column="P1" jdbcType="VARCHAR"/>
+        <result property="p2" column="P2" jdbcType="VARCHAR"/>
+        <result property="p3" column="P3" jdbcType="VARCHAR"/>
+        <result property="p4" column="P4" jdbcType="VARCHAR"/>
+        <result property="p5" column="P5" jdbcType="VARCHAR"/>
+        <result property="p6" column="P6" jdbcType="VARCHAR"/>
+        <result property="p7" column="P7" jdbcType="VARCHAR"/>
+        <result property="p8" column="P8" jdbcType="VARCHAR"/>
+        <result property="p9" column="P9" jdbcType="VARCHAR"/>
+        <result property="reupload" column="REUPLOAD" jdbcType="VARCHAR"/>
+        <result property="channel" column="CHANNEL" jdbcType="VARCHAR"/>
+        <result property="subTypeNameEn" column="SUB_TYPE_NAME_EN" jdbcType="VARCHAR"/>
+        <result property="subTypeNameTw" column="SUB_TYPE_NAME_TW" jdbcType="VARCHAR"/>
+        <result property="isPrinting" column="IS_PRINTING" jdbcType="VARCHAR"/>
+        <result property="printSort" column="PRINT_SORT" jdbcType="VARCHAR"/>
+        <result property="isFile" column="IS_FILE" jdbcType="VARCHAR"/>
+        <result property="originalType" column="ORIGINAL_TYPE" jdbcType="VARCHAR"/>
+        <result property="saveType" column="SAVE_TYPE" jdbcType="VARCHAR"/>
+        <result property="savePath" column="SAVE_PATH" jdbcType="VARCHAR"/>
+        <result property="isDefaultType" column="IS_DEFAULT_TYPE" jdbcType="VARCHAR"/>
+        <result property="hotLength" column="HOT_LENGTH" jdbcType="VARCHAR"/>
+        <result property="archivetiersFromDate" column="ARCHIVETIERS_FROM_DATE" jdbcType="VARCHAR"/>
+        <result property="isEasyscan" column="IS_EASYSCAN" jdbcType="VARCHAR"/>
+        <result property="abbreviation" column="ABBREVIATION" jdbcType="VARCHAR"/>
+        <result property="isSplit" column="IS_SPLIT" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="EsDocDefMap">
+        select
+          BUSS_TYPE, BUSS_TYPE_NAME, SUB_TYPE, SUB_TYPE_NAME, VALID_FLAG, CODE_FLAG, PASS_FLAG, DOC_TYPE, CODE_LEN, UP_FILE_TYPE, SAVE_COLOR_MODE, SCAN_SETTING_CODE, JPG_QUALITY, FILE_SAVE_TYPE, DOC_PRIORITY, NUM_PAGES, DOC_VERSION, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, P1, P2, P3, P4, P5, P6, P7, P8, P9, REUPLOAD, CHANNEL, SUB_TYPE_NAME_EN, SUB_TYPE_NAME_TW, IS_PRINTING, PRINT_SORT, IS_FILE, ORIGINAL_TYPE, SAVE_TYPE, SAVE_PATH, IS_DEFAULT_TYPE, HOT_LENGTH, ARCHIVETIERS_FROM_DATE, IS_EASYSCAN, ABBREVIATION, IS_SPLIT
+        from easyscan_tk.es_doc_def
+        where BUSS_TYPE = #{bussType}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="EsDocDefMap">
+        select
+          BUSS_TYPE, BUSS_TYPE_NAME, SUB_TYPE, SUB_TYPE_NAME, VALID_FLAG, CODE_FLAG, PASS_FLAG, DOC_TYPE, CODE_LEN, UP_FILE_TYPE, SAVE_COLOR_MODE, SCAN_SETTING_CODE, JPG_QUALITY, FILE_SAVE_TYPE, DOC_PRIORITY, NUM_PAGES, DOC_VERSION, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, P1, P2, P3, P4, P5, P6, P7, P8, P9, REUPLOAD, CHANNEL, SUB_TYPE_NAME_EN, SUB_TYPE_NAME_TW, IS_PRINTING, PRINT_SORT, IS_FILE, ORIGINAL_TYPE, SAVE_TYPE, SAVE_PATH, IS_DEFAULT_TYPE, HOT_LENGTH, ARCHIVETIERS_FROM_DATE, IS_EASYSCAN, ABBREVIATION, IS_SPLIT
+        from easyscan_tk.es_doc_def
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="EsDocDefMap">
+        select
+        BUSS_TYPE, BUSS_TYPE_NAME, SUB_TYPE, SUB_TYPE_NAME, VALID_FLAG, CODE_FLAG, PASS_FLAG, DOC_TYPE, CODE_LEN,
+        UP_FILE_TYPE, SAVE_COLOR_MODE, SCAN_SETTING_CODE, JPG_QUALITY, FILE_SAVE_TYPE, DOC_PRIORITY, NUM_PAGES,
+        DOC_VERSION, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, P1, P2, P3, P4, P5, P6, P7, P8, P9, REUPLOAD,
+        CHANNEL, SUB_TYPE_NAME_EN, SUB_TYPE_NAME_TW, IS_PRINTING, PRINT_SORT, IS_FILE, ORIGINAL_TYPE, SAVE_TYPE,
+        SAVE_PATH, IS_DEFAULT_TYPE, HOT_LENGTH, ARCHIVETIERS_FROM_DATE, IS_EASYSCAN, ABBREVIATION, IS_SPLIT
+        from easyscan_tk.es_doc_def
+        <where>
+            <if test="bussType != null and bussType != ''">
+                and BUSS_TYPE = #{bussType}
+            </if>
+            <if test="bussTypeName != null and bussTypeName != ''">
+                and BUSS_TYPE_NAME = #{bussTypeName}
+            </if>
+            <if test="subType != null and subType != ''">
+                and SUB_TYPE = #{subType}
+            </if>
+            <if test="subTypeName != null and subTypeName != ''">
+                and SUB_TYPE_NAME = #{subTypeName}
+            </if>
+            <if test="validFlag != null and validFlag != ''">
+                and VALID_FLAG = #{validFlag}
+            </if>
+            <if test="codeFlag != null and codeFlag != ''">
+                and CODE_FLAG = #{codeFlag}
+            </if>
+            <if test="passFlag != null and passFlag != ''">
+                and PASS_FLAG = #{passFlag}
+            </if>
+            <if test="docType != null and docType != ''">
+                and DOC_TYPE = #{docType}
+            </if>
+            <if test="codeLen != null and codeLen != ''">
+                and CODE_LEN = #{codeLen}
+            </if>
+            <if test="upFileType != null and upFileType != ''">
+                and UP_FILE_TYPE = #{upFileType}
+            </if>
+            <if test="saveColorMode != null and saveColorMode != ''">
+                and SAVE_COLOR_MODE = #{saveColorMode}
+            </if>
+            <if test="scanSettingCode != null and scanSettingCode != ''">
+                and SCAN_SETTING_CODE = #{scanSettingCode}
+            </if>
+            <if test="jpgQuality != null and jpgQuality != ''">
+                and JPG_QUALITY = #{jpgQuality}
+            </if>
+            <if test="fileSaveType != null and fileSaveType != ''">
+                and FILE_SAVE_TYPE = #{fileSaveType}
+            </if>
+            <if test="docPriority != null and docPriority != ''">
+                and DOC_PRIORITY = #{docPriority}
+            </if>
+            <if test="numPages != null and numPages != ''">
+                and NUM_PAGES = #{numPages}
+            </if>
+            <if test="docVersion != null and docVersion != ''">
+                and DOC_VERSION = #{docVersion}
+            </if>
+            <if test="createUser != null and createUser != ''">
+                and CREATE_USER = #{createUser}
+            </if>
+            <if test="createDate != null">
+                and CREATE_DATE = #{createDate}
+            </if>
+            <if test="updateUser != null and updateUser != ''">
+                and UPDATE_USER = #{updateUser}
+            </if>
+            <if test="updateDate != null">
+                and UPDATE_DATE = #{updateDate}
+            </if>
+            <if test="p1 != null and p1 != ''">
+                and P1 = #{p1}
+            </if>
+            <if test="p2 != null and p2 != ''">
+                and P2 = #{p2}
+            </if>
+            <if test="p3 != null and p3 != ''">
+                and P3 = #{p3}
+            </if>
+            <if test="p4 != null and p4 != ''">
+                and P4 = #{p4}
+            </if>
+            <if test="p5 != null and p5 != ''">
+                and P5 = #{p5}
+            </if>
+            <if test="p6 != null and p6 != ''">
+                and P6 = #{p6}
+            </if>
+            <if test="p7 != null and p7 != ''">
+                and P7 = #{p7}
+            </if>
+            <if test="p8 != null and p8 != ''">
+                and P8 = #{p8}
+            </if>
+            <if test="p9 != null and p9 != ''">
+                and P9 = #{p9}
+            </if>
+            <if test="reupload != null and reupload != ''">
+                and REUPLOAD = #{reupload}
+            </if>
+            <if test="channel != null and channel != ''">
+                and CHANNEL = #{channel}
+            </if>
+            <if test="subTypeNameEn != null and subTypeNameEn != ''">
+                and SUB_TYPE_NAME_EN = #{subTypeNameEn}
+            </if>
+            <if test="subTypeNameTw != null and subTypeNameTw != ''">
+                and SUB_TYPE_NAME_TW = #{subTypeNameTw}
+            </if>
+            <if test="isPrinting != null and isPrinting != ''">
+                and IS_PRINTING = #{isPrinting}
+            </if>
+            <if test="printSort != null and printSort != ''">
+                and PRINT_SORT = #{printSort}
+            </if>
+            <if test="isFile != null and isFile != ''">
+                and IS_FILE = #{isFile}
+            </if>
+            <if test="originalType != null and originalType != ''">
+                and ORIGINAL_TYPE = #{originalType}
+            </if>
+            <if test="saveType != null and saveType != ''">
+                and SAVE_TYPE = #{saveType}
+            </if>
+            <if test="savePath != null and savePath != ''">
+                and SAVE_PATH = #{savePath}
+            </if>
+            <if test="isDefaultType != null and isDefaultType != ''">
+                and IS_DEFAULT_TYPE = #{isDefaultType}
+            </if>
+            <if test="hotLength != null and hotLength != ''">
+                and HOT_LENGTH = #{hotLength}
+            </if>
+            <if test="archivetiersFromDate != null and archivetiersFromDate != ''">
+                and ARCHIVETIERS_FROM_DATE = #{archivetiersFromDate}
+            </if>
+            <if test="isEasyscan != null and isEasyscan != ''">
+                and IS_EASYSCAN = #{isEasyscan}
+            </if>
+            <if test="abbreviation != null and abbreviation != ''">
+                and ABBREVIATION = #{abbreviation}
+            </if>
+            <if test="isSplit != null and isSplit != ''">
+                and IS_SPLIT = #{isSplit}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="bussType" useGeneratedKeys="true">
+        insert into easyscan_tk.es_doc_def(BUSS_TYPE_NAME, SUB_TYPE_NAME, VALID_FLAG, CODE_FLAG, PASS_FLAG, DOC_TYPE, CODE_LEN, UP_FILE_TYPE, SAVE_COLOR_MODE, SCAN_SETTING_CODE, JPG_QUALITY, FILE_SAVE_TYPE, DOC_PRIORITY, NUM_PAGES, DOC_VERSION, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, P1, P2, P3, P4, P5, P6, P7, P8, P9, REUPLOAD, SUB_TYPE_NAME_EN, SUB_TYPE_NAME_TW, IS_PRINTING, PRINT_SORT, IS_FILE, ORIGINAL_TYPE, SAVE_TYPE, SAVE_PATH, IS_DEFAULT_TYPE, HOT_LENGTH, ARCHIVETIERS_FROM_DATE, IS_EASYSCAN, ABBREVIATION, IS_SPLIT)
+        values (#{bussTypeName}, #{subTypeName}, #{validFlag}, #{codeFlag}, #{passFlag}, #{docType}, #{codeLen}, #{upFileType}, #{saveColorMode}, #{scanSettingCode}, #{jpgQuality}, #{fileSaveType}, #{docPriority}, #{numPages}, #{docVersion}, #{createUser}, #{createDate}, #{updateUser}, #{updateDate}, #{p1}, #{p2}, #{p3}, #{p4}, #{p5}, #{p6}, #{p7}, #{p8}, #{p9}, #{reupload}, #{subTypeNameEn}, #{subTypeNameTw}, #{isPrinting}, #{printSort}, #{isFile}, #{originalType}, #{saveType}, #{savePath}, #{isDefaultType}, #{hotLength}, #{archivetiersFromDate}, #{isEasyscan}, #{abbreviation}, #{isSplit})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="bussType" useGeneratedKeys="true">
+        insert into easyscan_tk.es_doc_def(BUSS_TYPE_NAME, SUB_TYPE_NAME, VALID_FLAG, CODE_FLAG, PASS_FLAG, DOC_TYPE,
+        CODE_LEN, UP_FILE_TYPE, SAVE_COLOR_MODE, SCAN_SETTING_CODE, JPG_QUALITY, FILE_SAVE_TYPE, DOC_PRIORITY,
+        NUM_PAGES, DOC_VERSION, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, P1, P2, P3, P4, P5, P6, P7, P8, P9,
+        REUPLOAD, SUB_TYPE_NAME_EN, SUB_TYPE_NAME_TW, IS_PRINTING, PRINT_SORT, IS_FILE, ORIGINAL_TYPE, SAVE_TYPE,
+        SAVE_PATH, IS_DEFAULT_TYPE, HOT_LENGTH, ARCHIVETIERS_FROM_DATE, IS_EASYSCAN, ABBREVIATION, IS_SPLIT)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bussTypeName}, #{entity.subTypeName}, #{entity.validFlag}, #{entity.codeFlag}, #{entity.passFlag},
+            #{entity.docType}, #{entity.codeLen}, #{entity.upFileType}, #{entity.saveColorMode},
+            #{entity.scanSettingCode}, #{entity.jpgQuality}, #{entity.fileSaveType}, #{entity.docPriority},
+            #{entity.numPages}, #{entity.docVersion}, #{entity.createUser}, #{entity.createDate}, #{entity.updateUser},
+            #{entity.updateDate}, #{entity.p1}, #{entity.p2}, #{entity.p3}, #{entity.p4}, #{entity.p5}, #{entity.p6},
+            #{entity.p7}, #{entity.p8}, #{entity.p9}, #{entity.reupload}, #{entity.subTypeNameEn},
+            #{entity.subTypeNameTw}, #{entity.isPrinting}, #{entity.printSort}, #{entity.isFile},
+            #{entity.originalType}, #{entity.saveType}, #{entity.savePath}, #{entity.isDefaultType},
+            #{entity.hotLength}, #{entity.archivetiersFromDate}, #{entity.isEasyscan}, #{entity.abbreviation},
+            #{entity.isSplit})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="bussType" useGeneratedKeys="true">
+        insert into easyscan_tk.es_doc_def(BUSS_TYPE_NAME, SUB_TYPE_NAME, VALID_FLAG, CODE_FLAG, PASS_FLAG, DOC_TYPE,
+        CODE_LEN, UP_FILE_TYPE, SAVE_COLOR_MODE, SCAN_SETTING_CODE, JPG_QUALITY, FILE_SAVE_TYPE, DOC_PRIORITY,
+        NUM_PAGES, DOC_VERSION, CREATE_USER, CREATE_DATE, UPDATE_USER, UPDATE_DATE, P1, P2, P3, P4, P5, P6, P7, P8, P9,
+        REUPLOAD, SUB_TYPE_NAME_EN, SUB_TYPE_NAME_TW, IS_PRINTING, PRINT_SORT, IS_FILE, ORIGINAL_TYPE, SAVE_TYPE,
+        SAVE_PATH, IS_DEFAULT_TYPE, HOT_LENGTH, ARCHIVETIERS_FROM_DATE, IS_EASYSCAN, ABBREVIATION, IS_SPLIT)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.bussTypeName}, #{entity.subTypeName}, #{entity.validFlag}, #{entity.codeFlag}, #{entity.passFlag},
+            #{entity.docType}, #{entity.codeLen}, #{entity.upFileType}, #{entity.saveColorMode},
+            #{entity.scanSettingCode}, #{entity.jpgQuality}, #{entity.fileSaveType}, #{entity.docPriority},
+            #{entity.numPages}, #{entity.docVersion}, #{entity.createUser}, #{entity.createDate}, #{entity.updateUser},
+            #{entity.updateDate}, #{entity.p1}, #{entity.p2}, #{entity.p3}, #{entity.p4}, #{entity.p5}, #{entity.p6},
+            #{entity.p7}, #{entity.p8}, #{entity.p9}, #{entity.reupload}, #{entity.subTypeNameEn},
+            #{entity.subTypeNameTw}, #{entity.isPrinting}, #{entity.printSort}, #{entity.isFile},
+            #{entity.originalType}, #{entity.saveType}, #{entity.savePath}, #{entity.isDefaultType},
+            #{entity.hotLength}, #{entity.archivetiersFromDate}, #{entity.isEasyscan}, #{entity.abbreviation},
+            #{entity.isSplit})
+        </foreach>
+        on duplicate key update
+        BUSS_TYPE_NAME = values(BUSS_TYPE_NAME) , SUB_TYPE_NAME = values(SUB_TYPE_NAME) , VALID_FLAG =
+        values(VALID_FLAG) , CODE_FLAG = values(CODE_FLAG) , PASS_FLAG = values(PASS_FLAG) , DOC_TYPE = values(DOC_TYPE)
+        , CODE_LEN = values(CODE_LEN) , UP_FILE_TYPE = values(UP_FILE_TYPE) , SAVE_COLOR_MODE = values(SAVE_COLOR_MODE)
+        , SCAN_SETTING_CODE = values(SCAN_SETTING_CODE) , JPG_QUALITY = values(JPG_QUALITY) , FILE_SAVE_TYPE =
+        values(FILE_SAVE_TYPE) , DOC_PRIORITY = values(DOC_PRIORITY) , NUM_PAGES = values(NUM_PAGES) , DOC_VERSION =
+        values(DOC_VERSION) , CREATE_USER = values(CREATE_USER) , CREATE_DATE = values(CREATE_DATE) , UPDATE_USER =
+        values(UPDATE_USER) , UPDATE_DATE = values(UPDATE_DATE) , P1 = values(P1) , P2 = values(P2) , P3 = values(P3) ,
+        P4 = values(P4) , P5 = values(P5) , P6 = values(P6) , P7 = values(P7) , P8 = values(P8) , P9 = values(P9) ,
+        REUPLOAD = values(REUPLOAD) , SUB_TYPE_NAME_EN = values(SUB_TYPE_NAME_EN) , SUB_TYPE_NAME_TW =
+        values(SUB_TYPE_NAME_TW) , IS_PRINTING = values(IS_PRINTING) , PRINT_SORT = values(PRINT_SORT) , IS_FILE =
+        values(IS_FILE) , ORIGINAL_TYPE = values(ORIGINAL_TYPE) , SAVE_TYPE = values(SAVE_TYPE) , SAVE_PATH =
+        values(SAVE_PATH) , IS_DEFAULT_TYPE = values(IS_DEFAULT_TYPE) , HOT_LENGTH = values(HOT_LENGTH) ,
+        ARCHIVETIERS_FROM_DATE = values(ARCHIVETIERS_FROM_DATE) , IS_EASYSCAN = values(IS_EASYSCAN) , ABBREVIATION =
+        values(ABBREVIATION) , IS_SPLIT = values(IS_SPLIT)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update easyscan_tk.es_doc_def
+        <set>
+            <if test="bussTypeName != null and bussTypeName != ''">
+                BUSS_TYPE_NAME = #{bussTypeName},
+            </if>
+            <if test="subTypeName != null and subTypeName != ''">
+                SUB_TYPE_NAME = #{subTypeName},
+            </if>
+            <if test="validFlag != null and validFlag != ''">
+                VALID_FLAG = #{validFlag},
+            </if>
+            <if test="codeFlag != null and codeFlag != ''">
+                CODE_FLAG = #{codeFlag},
+            </if>
+            <if test="passFlag != null and passFlag != ''">
+                PASS_FLAG = #{passFlag},
+            </if>
+            <if test="docType != null and docType != ''">
+                DOC_TYPE = #{docType},
+            </if>
+            <if test="codeLen != null and codeLen != ''">
+                CODE_LEN = #{codeLen},
+            </if>
+            <if test="upFileType != null and upFileType != ''">
+                UP_FILE_TYPE = #{upFileType},
+            </if>
+            <if test="saveColorMode != null and saveColorMode != ''">
+                SAVE_COLOR_MODE = #{saveColorMode},
+            </if>
+            <if test="scanSettingCode != null and scanSettingCode != ''">
+                SCAN_SETTING_CODE = #{scanSettingCode},
+            </if>
+            <if test="jpgQuality != null and jpgQuality != ''">
+                JPG_QUALITY = #{jpgQuality},
+            </if>
+            <if test="fileSaveType != null and fileSaveType != ''">
+                FILE_SAVE_TYPE = #{fileSaveType},
+            </if>
+            <if test="docPriority != null and docPriority != ''">
+                DOC_PRIORITY = #{docPriority},
+            </if>
+            <if test="numPages != null and numPages != ''">
+                NUM_PAGES = #{numPages},
+            </if>
+            <if test="docVersion != null and docVersion != ''">
+                DOC_VERSION = #{docVersion},
+            </if>
+            <if test="createUser != null and createUser != ''">
+                CREATE_USER = #{createUser},
+            </if>
+            <if test="createDate != null">
+                CREATE_DATE = #{createDate},
+            </if>
+            <if test="updateUser != null and updateUser != ''">
+                UPDATE_USER = #{updateUser},
+            </if>
+            <if test="updateDate != null">
+                UPDATE_DATE = #{updateDate},
+            </if>
+            <if test="p1 != null and p1 != ''">
+                P1 = #{p1},
+            </if>
+            <if test="p2 != null and p2 != ''">
+                P2 = #{p2},
+            </if>
+            <if test="p3 != null and p3 != ''">
+                P3 = #{p3},
+            </if>
+            <if test="p4 != null and p4 != ''">
+                P4 = #{p4},
+            </if>
+            <if test="p5 != null and p5 != ''">
+                P5 = #{p5},
+            </if>
+            <if test="p6 != null and p6 != ''">
+                P6 = #{p6},
+            </if>
+            <if test="p7 != null and p7 != ''">
+                P7 = #{p7},
+            </if>
+            <if test="p8 != null and p8 != ''">
+                P8 = #{p8},
+            </if>
+            <if test="p9 != null and p9 != ''">
+                P9 = #{p9},
+            </if>
+            <if test="reupload != null and reupload != ''">
+                REUPLOAD = #{reupload},
+            </if>
+            <if test="subTypeNameEn != null and subTypeNameEn != ''">
+                SUB_TYPE_NAME_EN = #{subTypeNameEn},
+            </if>
+            <if test="subTypeNameTw != null and subTypeNameTw != ''">
+                SUB_TYPE_NAME_TW = #{subTypeNameTw},
+            </if>
+            <if test="isPrinting != null and isPrinting != ''">
+                IS_PRINTING = #{isPrinting},
+            </if>
+            <if test="printSort != null and printSort != ''">
+                PRINT_SORT = #{printSort},
+            </if>
+            <if test="isFile != null and isFile != ''">
+                IS_FILE = #{isFile},
+            </if>
+            <if test="originalType != null and originalType != ''">
+                ORIGINAL_TYPE = #{originalType},
+            </if>
+            <if test="saveType != null and saveType != ''">
+                SAVE_TYPE = #{saveType},
+            </if>
+            <if test="savePath != null and savePath != ''">
+                SAVE_PATH = #{savePath},
+            </if>
+            <if test="isDefaultType != null and isDefaultType != ''">
+                IS_DEFAULT_TYPE = #{isDefaultType},
+            </if>
+            <if test="hotLength != null and hotLength != ''">
+                HOT_LENGTH = #{hotLength},
+            </if>
+            <if test="archivetiersFromDate != null and archivetiersFromDate != ''">
+                ARCHIVETIERS_FROM_DATE = #{archivetiersFromDate},
+            </if>
+            <if test="isEasyscan != null and isEasyscan != ''">
+                IS_EASYSCAN = #{isEasyscan},
+            </if>
+            <if test="abbreviation != null and abbreviation != ''">
+                ABBREVIATION = #{abbreviation},
+            </if>
+            <if test="isSplit != null and isSplit != ''">
+                IS_SPLIT = #{isSplit},
+            </if>
+        </set>
+        where BUSS_TYPE = #{bussType}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from easyscan_tk.es_doc_def where BUSS_TYPE = #{bussType}
+    </delete>
+
+</mapper>
